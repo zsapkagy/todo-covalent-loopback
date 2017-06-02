@@ -1,3 +1,4 @@
+import { CovalentLayoutModule } from '@covalent/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -8,7 +9,8 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    CovalentLayoutModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
