@@ -11,12 +11,16 @@ import { AppRoutingModule } from './app-routing.module'; //TODO: Create app.rout
 
 // Feature Modules
 import { SDKBrowserModule } from './shared/sdk/index';
+import { TodoHeaderComponent } from './todo/todo-header/todo-header.component';
+import { TodoFooterComponent } from './todo/todo-footer/todo-footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodoComponent,
-    TodoListComponent
+    TodoListComponent,
+    TodoHeaderComponent,
+    TodoFooterComponent
   ],
   imports: [
     BrowserModule,
