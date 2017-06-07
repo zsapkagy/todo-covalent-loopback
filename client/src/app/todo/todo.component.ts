@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TodoApi, Todo } from "app/shared/sdk";
 
 @Component({
   selector: 'poc-todo',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./todo.component.scss']
 })
 export class TodoComponent implements OnInit {
+  todos: Todo[];
 
-  constructor() { }
+  constructor(private todoApi: TodoApi) { }
+
 
   ngOnInit() {
+    this.todoApi.find({})
+    .subscribe((result) => {
+      this.todos = result as Todo[];
+    })
   }
 
 }

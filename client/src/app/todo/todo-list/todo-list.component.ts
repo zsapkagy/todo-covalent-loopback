@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { Todo, TodoApi } from "app/shared/sdk";
 
@@ -8,17 +8,13 @@ import { Todo, TodoApi } from "app/shared/sdk";
   styleUrls: ['./todo-list.component.scss']
 })
 export class TodoListComponent implements OnInit {
+  @Input()
   todos: Todo[];
 
-  constructor(private todoApi: TodoApi) {
-
+  constructor() {
   }
 
   ngOnInit() {
-    this.todoApi.find({})
-    .subscribe((result) => {
-      this.todos = result as Todo[];
-    })
   }
 
 }
