@@ -1,6 +1,6 @@
 {
   "ids": {
-    "todo": 7
+    "todo": 9
   },
   "models": {
     "todo": {
@@ -9,7 +9,9 @@
       "3": "{\"name\":\"todo 03\",\"priority\":1,\"done\":true,\"id\":3}",
       "4": "{\"name\":\"todo 04\",\"priority\":3,\"done\":false,\"id\":4}",
       "5": "{\"name\":\"todo 05\",\"priority\":3,\"done\":false,\"id\":5}",
-      "6": "{\"name\":\"todo 06\",\"priority\":0,\"done\":false,\"id\":6}"
+      "6": "{\"name\":\"todo 06\",\"priority\":0,\"done\":false,\"id\":6}",
+      "7": "{\"name\":\"test todo\",\"priority\":0,\"done\":false,\"id\":7}",
+      "8": "{\"name\":\"sersefs\",\"priority\":0,\"done\":false,\"id\":8}"
     }
   }
 }

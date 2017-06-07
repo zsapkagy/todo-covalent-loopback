@@ -1,5 +1,6 @@
 import { CovalentLayoutModule } from '@covalent/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from "@angular/forms";
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
@@ -13,6 +14,8 @@ import { AppRoutingModule } from './app-routing.module'; //TODO: Create app.rout
 import { SDKBrowserModule } from './shared/sdk/index';
 import { TodoHeaderComponent } from './todo/todo-header/todo-header.component';
 import { TodoFooterComponent } from './todo/todo-footer/todo-footer.component';
+import { DonePipe } from './todo/todo-footer/done.pipe';
+import { CountPipe } from './todo/todo-footer/count.pipe';
 
 @NgModule({
   declarations: [
@@ -20,12 +23,15 @@ import { TodoFooterComponent } from './todo/todo-footer/todo-footer.component';
     TodoComponent,
     TodoListComponent,
     TodoHeaderComponent,
-    TodoFooterComponent
+    TodoFooterComponent,
+    DonePipe,
+    CountPipe
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
     CovalentLayoutModule,
-    AppRoutingModule,
+    FormsModule,
     SDKBrowserModule.forRoot(),  // Loopback SDK builder
   ],
   providers: [],

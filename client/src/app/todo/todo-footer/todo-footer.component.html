@@ -1,3 +1,5 @@
-<p>
-  todo-footer works!
-</p>
+<div>
+  <span *ngIf="todos">
+    All: {{ todos.length }} | Completed: {{ todos | done | count }}
+  </span>
+</div>

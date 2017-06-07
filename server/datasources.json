@@ -2,7 +2,7 @@
   "file": {
     "name": "file",
     "localStorage": "fileCv",
-    "file": "./server/data/memoryStorage.json",
+    "file": "./server/data/memory-storage.json",
     "connector": "memory"
   }
 }

@@ -1,3 +1,5 @@
-<p>
-  todo-header works!
-</p>
+<input type="text" name="name" [(ngModel)]="newTodo.name"
+  placeholder="What should be done?"
+  autofocus
+  (keyup.enter)="addTodo()"
+>

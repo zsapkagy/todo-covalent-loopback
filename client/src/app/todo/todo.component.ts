@@ -11,12 +11,23 @@ export class TodoComponent implements OnInit {
 
   constructor(private todoApi: TodoApi) { }
 
-
   ngOnInit() {
+    this.refreshTodoList();
+  }
+
+  onAddTodo(event) {
+    this.todoApi.create(event)
+    .subscribe((result) => {
+      // this.refreshTodoList();
+      this.todos.push(result);
+    })
+  }
+
+  refreshTodoList() {
     this.todoApi.find({})
     .subscribe((result) => {
       this.todos = result as Todo[];
-    })
+    });
   }
 
 }
