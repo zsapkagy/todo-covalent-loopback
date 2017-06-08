@@ -1,6 +1,6 @@
 <ul>
   <li *ngFor="let item of todos">
-    {{ item.name }}
-    <md-icon ngClass="{{ item.priority | priorityClass}}">flag</md-icon>
+    <span [ngClass]="{done: item.done}">{{ item.name }}</span>
+    <md-icon [ngClass]="item.priority | priorityClass">flag</md-icon>
   </li>
 </ul>
