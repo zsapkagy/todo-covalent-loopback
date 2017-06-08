@@ -1,3 +1,8 @@
 <poc-todo-header (add)="onAddTodo($event)"></poc-todo-header>
-<poc-todo-list [todos]="todos" (delete)="onDeleteTodo($event)" (toggleDone)="onToggleDoneTodo($event)"></poc-todo-list>
+<hr>
+<poc-todo-list
+  *tdLoading="'loader'"
+  [todos]="todos" (delete)="onDeleteTodo($event)" (toggleDone)="onToggleDoneTodo($event)"
+></poc-todo-list>
+<hr>
 <poc-todo-footer [todos]="todos"></poc-todo-footer>

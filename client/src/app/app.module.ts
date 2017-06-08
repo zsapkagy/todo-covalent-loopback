@@ -1,7 +1,11 @@
-import { CovalentLayoutModule } from '@covalent/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from "@angular/forms";
 import { NgModule } from '@angular/core';
+
+// Shared Modules
+import { CovalentLayoutModule, CovalentLoadingModule } from '@covalent/core';
+import { MdIconModule, MdButtonModule, MdRadioModule } from "@angular/material";
 
 import { AppComponent } from './app.component';
 import { TodoComponent } from './todo/todo.component';
@@ -16,7 +20,6 @@ import { TodoHeaderComponent } from './todo/todo-header/todo-header.component';
 import { TodoFooterComponent } from './todo/todo-footer/todo-footer.component';
 import { DonePipe } from './todo/todo-footer/done.pipe';
 import { CountPipe } from './todo/todo-footer/count.pipe';
-import { MdIconModule, MdButtonModule, MdRadioModule } from "@angular/material";
 import { PriorityClassPipe } from './todo/todo-list/priority-class.pipe';
 
 @NgModule({
@@ -32,13 +35,15 @@ import { PriorityClassPipe } from './todo/todo-list/priority-class.pipe';
   ],
   imports: [
     AppRoutingModule,
+    BrowserAnimationsModule,
     BrowserModule,
-    CovalentLayoutModule,
     FormsModule,
     SDKBrowserModule.forRoot(),  // Loopback SDK builder
 
     // Shared modules
-    MdIconModule, MdButtonModule, MdRadioModule
+    MdIconModule, MdButtonModule, MdRadioModule,
+    CovalentLayoutModule,
+    CovalentLoadingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

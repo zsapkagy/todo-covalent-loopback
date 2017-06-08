@@ -1,5 +1,4 @@
-<div>
-  <span *ngIf="todos">
-    All: {{ todos.length }} | Completed: {{ todos | done | count }}
-  </span>
+<div *ngIf="todos" layout="row" layout-padding>
+  <span flex>All: {{ todos.length }}</span>
+  <span flex class="text-right">Completed: {{ todos | done | count }}</span>
 </div>

@@ -1,11 +1,17 @@
-<md-icon>add</md-icon>
-<input type="text" name="name" [(ngModel)]="newTodo.name"
-  placeholder="What should be done?"
-  autofocus
-  (keyup.enter)="addTodo()"
->
-<md-radio-group [(ngModel)]="newTodo.priority">
-  <md-radio-button *ngFor="let priority of [0, 1, 2, 3]" [value]="priority">
-        <md-icon [ngClass]="priority | priorityClass">flag</md-icon>
-  </md-radio-button>
-</md-radio-group>
+<div layout="row" layout-padding>
+  <input flex type="text" name="name" [(ngModel)]="newTodo.name"
+    placeholder="What should be done?"
+    autofocus
+    (keyup.enter)="addTodo()"
+  >
+</div>
+<div layout="row" layout-padding>
+  <span flex="30">Priority</span>
+  <md-radio-group [(ngModel)]="newTodo.priority"
+    (keyup.enter)="addTodo()"
+    flex class="text-right">
+    <md-radio-button *ngFor="let priority of [0, 1, 2, 3]" [value]="priority" class="pad-right-md">
+          <md-icon [ngClass]="priority | priorityClass">flag</md-icon>
+    </md-radio-button>
+  </md-radio-group>
+</div>
