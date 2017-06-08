@@ -15,7 +15,7 @@ export class PriorityClassPipe implements PipeTransform {
         return 'tc-yellow-600';
       case 0:
       default:
-        return 'tc-green-600';
+        return 'tc-grey-400';
     }
   }
 
