@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { Todo, TodoApi } from "app/shared/sdk";
 
@@ -11,10 +11,24 @@ export class TodoListComponent implements OnInit {
   @Input()
   todos: Todo[];
 
+  @Output()
+  delete: EventEmitter<Todo> = new EventEmitter();
+
+  @Output()
+  toggleDone: EventEmitter<Todo> = new EventEmitter();
+
   constructor() {
   }
 
   ngOnInit() {
+  }
+
+  onDelete(item: Todo) {
+    this.delete.emit(item);
+  }
+
+  onToggleDone(item: Todo) {
+    this.toggleDone.emit(item);
   }
 
 }

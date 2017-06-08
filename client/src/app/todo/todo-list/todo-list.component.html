@@ -1,6 +1,8 @@
 <ul>
-  <li *ngFor="let item of todos">
-    <span [ngClass]="{done: item.done}">{{ item.name }}</span>
+  <li *ngFor="let item of todos" [ngClass]="{done: item.done}">
+    <button md-button (click)="onToggleDone(item)"><md-icon>check</md-icon></button>
+    <span>{{ item.name }}</span>
     <md-icon [ngClass]="item.priority | priorityClass">flag</md-icon>
+    <button md-mini-fab (click)="onDelete(item)"><md-icon>delete</md-icon></button>
   </li>
 </ul>

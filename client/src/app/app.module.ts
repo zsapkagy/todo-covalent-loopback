@@ -16,7 +16,7 @@ import { TodoHeaderComponent } from './todo/todo-header/todo-header.component';
 import { TodoFooterComponent } from './todo/todo-footer/todo-footer.component';
 import { DonePipe } from './todo/todo-footer/done.pipe';
 import { CountPipe } from './todo/todo-footer/count.pipe';
-import { MdIconModule } from "@angular/material";
+import { MdIconModule, MdButtonModule } from "@angular/material";
 import { PriorityClassPipe } from './todo/todo-list/priority-class.pipe';
 
 @NgModule({
@@ -38,7 +38,7 @@ import { PriorityClassPipe } from './todo/todo-list/priority-class.pipe';
     SDKBrowserModule.forRoot(),  // Loopback SDK builder
 
     // Shared modules
-    MdIconModule,
+    MdIconModule, MdButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

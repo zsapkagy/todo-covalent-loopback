@@ -23,6 +23,20 @@ export class TodoComponent implements OnInit {
     })
   }
 
+  onDeleteTodo(event) {
+    this.todoApi.deleteById(event.id)
+    .subscribe((result) => {
+      this.refreshTodoList();
+    })
+  }
+
+  onToggleDoneTodo(event) {
+    this.todoApi.patchAttributes(event.id, {done: !event.done})
+    .subscribe((result) => {
+      this.refreshTodoList();
+    })
+  }
+
   refreshTodoList() {
     this.todoApi.find({})
     .subscribe((result) => {
