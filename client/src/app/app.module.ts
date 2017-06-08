@@ -16,6 +16,8 @@ import { TodoHeaderComponent } from './todo/todo-header/todo-header.component';
 import { TodoFooterComponent } from './todo/todo-footer/todo-footer.component';
 import { DonePipe } from './todo/todo-footer/done.pipe';
 import { CountPipe } from './todo/todo-footer/count.pipe';
+import { MdIconModule } from "@angular/material";
+import { PriorityClassPipe } from './todo/todo-list/priority-class.pipe';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { CountPipe } from './todo/todo-footer/count.pipe';
     TodoHeaderComponent,
     TodoFooterComponent,
     DonePipe,
-    CountPipe
+    CountPipe,
+    PriorityClassPipe
   ],
   imports: [
     AppRoutingModule,
@@ -33,6 +36,9 @@ import { CountPipe } from './todo/todo-footer/count.pipe';
     CovalentLayoutModule,
     FormsModule,
     SDKBrowserModule.forRoot(),  // Loopback SDK builder
+
+    // Shared modules
+    MdIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
