@@ -4,8 +4,8 @@ import { FormsModule } from "@angular/forms";
 import { NgModule } from '@angular/core';
 
 // Shared Modules
-import { CovalentLayoutModule, CovalentLoadingModule } from '@covalent/core';
-import { MdIconModule, MdButtonModule, MdRadioModule } from "@angular/material";
+import { CovalentLayoutModule, CovalentLoadingModule, CovalentDialogsModule } from '@covalent/core';
+import { MdIconModule, MdButtonModule, MdRadioModule, MdSnackBarModule } from "@angular/material";
 
 import { AppComponent } from './app.component';
 import { TodoComponent } from './todo/todo.component';
@@ -41,9 +41,8 @@ import { PriorityClassPipe } from './todo/todo-list/priority-class.pipe';
     SDKBrowserModule.forRoot(),  // Loopback SDK builder
 
     // Shared modules
-    MdIconModule, MdButtonModule, MdRadioModule,
-    CovalentLayoutModule,
-    CovalentLoadingModule,
+    MdIconModule, MdButtonModule, MdRadioModule, MdSnackBarModule,
+    CovalentLayoutModule, CovalentLoadingModule, CovalentDialogsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
