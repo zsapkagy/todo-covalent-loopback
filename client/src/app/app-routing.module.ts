@@ -1,14 +1,26 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { TodoComponent } from "app/todo/todo.component";
+import { PageNotFoundComponent } from "app/page-not-found.component";
+import { MainComponent } from "app/main/main.component";
 
 const routes: Routes = [
-  { path: '', redirectTo: 'todos', pathMatch: 'full' },
-  { path: 'todos', component: TodoComponent },
+  { path: '',   redirectTo: '/todos', pathMatch: 'full' },
+  {
+      path: '404',
+      component: PageNotFoundComponent
+  },
+  {
+      path: '',
+      component: MainComponent,
+      children: [
+        { path: 'todos', loadChildren: 'app/todo/todo.module#TodoModule' },
+      ]
+  },
+  { path: '**', redirectTo: '404' },
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
 export class AppRoutingModule { }
