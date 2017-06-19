@@ -2,30 +2,77 @@ import { NgModule, } from '@angular/core';
 import { CommonModule, } from '@angular/common';
 import { FormsModule, ReactiveFormsModule, } from '@angular/forms';
 
-import {
-  CovalentLoadingModule,
-  /*CovalentNotificationsModule,*/ CovalentLayoutModule, CovalentMenuModule,
-  /*CovalentSearchModule,*/ CovalentDialogsModule,
-} from '@covalent/core';
-
-import {
-  MdButtonModule, MdIconModule, MdMenuModule, MdSnackBarModule, MdRadioModule
-} from '@angular/material';
-
 import { DonePipe } from "app/shared/done.pipe";
 import { CountPipe } from "app/shared/count.pipe";
 import { PriorityClassPipe } from "app/shared/priority-class.pipe";
+
+import {
+  // CovalentCommonModule,
+  // CovalentDataTableModule,
+  CovalentDialogsModule,
+  CovalentLayoutModule,
+  CovalentLoadingModule,
+  // CovalentMediaModule,
+  CovalentMenuModule,
+  // CovalentNotificationsModule,
+  // CovalentPagingModule,
+  // CovalentSearchModule,
+  // CovalentStepsModule,
+} from '@covalent/core';
+
+import {
+  MdButtonModule,
+  // MdCardModule,
+  // MdCheckboxModule,
+  MdIconModule,
+  // MdInputModule,
+  MdListModule,
+  MdMenuModule,
+  MdRadioModule,
+  // MdSelectModule,
+  MdSidenavModule,
+  MdSlideToggleModule,
+  MdSnackBarModule,
+  // MdTabsModule,
+  MdToolbarModule,
+  // MdTooltipModule,
+} from '@angular/material';
+
 
 const ANGULAR_MODULES: any[] = [
   CommonModule, FormsModule, ReactiveFormsModule,
 ];
 
 const MATERIAL_MODULES: any[] = [
-  MdButtonModule, MdIconModule, MdMenuModule, MdSnackBarModule, MdRadioModule,
+  MdButtonModule,
+  // MdCardModule,
+  // MdCheckboxModule,
+  MdIconModule,
+  // MdInputModule,
+  MdListModule,
+  MdMenuModule,
+  MdRadioModule,
+  // MdSelectModule,
+  MdSidenavModule,
+  MdSlideToggleModule,
+  MdSnackBarModule,
+  // MdTabsModule,
+  MdToolbarModule,
+  // MdTooltipModule,
 ];
 
 const COVALENT_MODULES: any[] = [
-  CovalentLoadingModule, CovalentLayoutModule, CovalentMenuModule, CovalentDialogsModule,
+  // CovalentCommonModule,
+  // CovalentDataTableModule,
+  CovalentDialogsModule,
+  CovalentLayoutModule,
+  CovalentLoadingModule,
+  // CovalentMediaModule,
+  CovalentMenuModule,
+  // CovalentNotificationsModule,
+  // CovalentPagingModule,
+  // CovalentSearchModule,
+  // CovalentStepsModule,
 ];
 
 const DECLARATIONS: any[] = [
