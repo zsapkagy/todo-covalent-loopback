@@ -15,6 +15,7 @@ import { SDKBrowserModule } from './shared/sdk/index';
 
 // Feature Modules
 import { TodoModule } from "app/todo/todo.module";
+import { OverModularizedModule } from "app/over-modularized/over-modularized.module";
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { TodoModule } from "app/todo/todo.module";
 
     // App modules
     TodoModule,
+    OverModularizedModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

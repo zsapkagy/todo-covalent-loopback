@@ -12,10 +12,10 @@ export class MainComponent implements OnInit {
       title: 'TodoList single module',
       route: '/todos',
       icon: 'dashboard',
-    // }, {
-    //   title: 'Product Dashboard',
-    //   route: '/product',
-    //   icon: 'view_quilt',
+    }, {
+      title: 'Over modularized todo list',
+      route: '/oo-todos',
+      icon: 'view_quilt',
     // }, {
     //   title: 'Product Logs',
     //   route: '/logs',
