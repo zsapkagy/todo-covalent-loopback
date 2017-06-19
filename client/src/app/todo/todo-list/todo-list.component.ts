@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
-import { Todo, TodoApi } from "app/shared/sdk";
+import { Todo } from "app/shared/sdk";
 
 @Component({
   selector: 'poc-todo-list',

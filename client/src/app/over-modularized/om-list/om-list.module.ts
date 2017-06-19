@@ -1,11 +1,18 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { OmListComponent } from './om-list.component';
+import { OmListItemComponent } from "app/over-modularized/om-list/om-list-item/om-list-item.component";
+import { SharedModule } from "app/shared/shared.module";
 
 @NgModule({
   imports: [
-    CommonModule
+    SharedModule
   ],
-  declarations: [OmListComponent]
+  declarations: [
+    OmListComponent,
+    OmListItemComponent
+  ],
+  exports: [
+    OmListComponent
+  ],
 })
 export class OmListModule { }

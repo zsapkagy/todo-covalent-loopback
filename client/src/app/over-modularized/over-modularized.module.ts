@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { OmListModule } from "app/over-modularized/om-list/om-list.module";
 import { OverModularizedComponent } from './over-modularized.component';
 import { OverModularizedRoutingModule } from "app/over-modularized/over-modularized-routing.module";
-import { OmListItemComponent } from './om-list-item/om-list-item.component';
+import { SharedModule } from "app/shared/shared.module";
 
 @NgModule({
   imports: [
-    CommonModule,
-    OverModularizedRoutingModule
+    SharedModule,
+    OverModularizedRoutingModule,
+    OmListModule
   ],
   declarations: [
-    OverModularizedComponent,
-    OmListItemComponent
+    OverModularizedComponent
   ]
 })
 export class OverModularizedModule { }

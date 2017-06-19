@@ -1,3 +1,16 @@
-<p>
-  over-modularized works!
-</p>
+<td-layout-nav>
+  <div td-toolbar-content layout="row" layout-align="center center" flex>
+    <span>TODO list over modularized module, no tests</span>
+    <span flex></span>
+  </div>
+  <td-layout-card-over cardTitle="Todos" cardSubtitle="Add or complete todos" cardWidth="75">
+    <poc-om-todo-list
+      *tdLoading="'loader'"
+      [todos]="todos" (delete)="onDeleteTodo($event)" (toggleDone)="onToggleDoneTodo($event)"
+    ></poc-om-todo-list>
+    <hr>
+    <td-layout-footer color="primary">
+      <poc-todo-footer [todos]="todos"></poc-todo-footer>
+    </td-layout-footer>
+  </td-layout-card-over>
+</td-layout-nav>
