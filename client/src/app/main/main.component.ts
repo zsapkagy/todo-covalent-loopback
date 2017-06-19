@@ -7,9 +7,37 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  constructor() { }
+  routes: Object[] = [
+    {
+      title: 'TodoList single module',
+      route: '/todos',
+      icon: 'dashboard',
+    // }, {
+    //   title: 'Product Dashboard',
+    //   route: '/product',
+    //   icon: 'view_quilt',
+    // }, {
+    //   title: 'Product Logs',
+    //   route: '/logs',
+    //   icon: 'receipt',
+    // }, {
+    //   title: 'Manage Users',
+    //   route: '/users',
+    //   icon: 'people',
+    // }, {
+    //   title: 'Covalent Templates',
+    //   route: '/templates',
+    //   icon: 'view_module',
+    },
+  ];
+
+  constructor() {
+    console.log('main constructor');
+
+  }
 
   ngOnInit() {
+    console.log('main onInit');
   }
 
 }
