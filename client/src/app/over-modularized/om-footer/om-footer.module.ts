@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TodoMmComponent } from './todo-mm/todo-mm.component';
+import { OmFooterComponent } from './om-footer.component';
 
 @NgModule({
   imports: [
     CommonModule
   ],
-  declarations: [TodoMmComponent]
+  declarations: [OmFooterComponent]
 })
-export class TodoMmModule { }
+export class OmFooterModule { }

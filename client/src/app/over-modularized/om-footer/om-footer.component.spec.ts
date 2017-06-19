@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TodoMmComponent } from './todo-mm.component';
+import { OmFooterComponent } from './om-footer.component';
 
-describe('TodoMmComponent', () => {
-  let component: TodoMmComponent;
-  let fixture: ComponentFixture<TodoMmComponent>;
+describe('OmFooterComponent', () => {
+  let component: OmFooterComponent;
+  let fixture: ComponentFixture<OmFooterComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TodoMmComponent ]
+      declarations: [ OmFooterComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TodoMmComponent);
+    fixture = TestBed.createComponent(OmFooterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TodoMmEditComponent } from './todo-mm-edit.component';
+import { OverModularizedComponent } from './over-modularized.component';
 
-describe('TodoMmEditComponent', () => {
-  let component: TodoMmEditComponent;
-  let fixture: ComponentFixture<TodoMmEditComponent>;
+describe('OverModularizedComponent', () => {
+  let component: OverModularizedComponent;
+  let fixture: ComponentFixture<OverModularizedComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TodoMmEditComponent ]
+      declarations: [ OverModularizedComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TodoMmEditComponent);
+    fixture = TestBed.createComponent(OverModularizedComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
