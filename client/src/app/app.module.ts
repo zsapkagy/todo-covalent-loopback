@@ -1,16 +1,15 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from "@angular/forms";
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { MainComponent } from './main/main.component';
-import { PageNotFoundComponent } from "app/page-not-found.component";
 
 // Routing Module
 import { AppRoutingModule } from './app-routing.module'; //TODO: Create app.routing
 
+// Core, shared modules
 import { SharedModule } from "app/shared/shared.module";
+import { CoreModule } from "app/core/core.module";
 import { SDKBrowserModule } from './shared/sdk/index';
 
 // Feature Modules
@@ -20,17 +19,15 @@ import { OverModularizedModule } from "app/over-modularized/over-modularized.mod
 @NgModule({
   declarations: [
     AppComponent,
-    MainComponent,
-    PageNotFoundComponent
   ],
   imports: [
-    AppRoutingModule,
     BrowserAnimationsModule,
     BrowserModule,
-    FormsModule,
-    SDKBrowserModule.forRoot(),  // Loopback SDK builder
 
+    AppRoutingModule,
     SharedModule,
+    CoreModule,
+    SDKBrowserModule.forRoot(),  // Loopback SDK builder
 
     // App modules
     TodoModule,

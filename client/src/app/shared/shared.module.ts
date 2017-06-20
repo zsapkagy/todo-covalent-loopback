@@ -40,7 +40,9 @@ import {
 
 
 const ANGULAR_MODULES: any[] = [
-  CommonModule, FormsModule, ReactiveFormsModule,
+  CommonModule,
+  FormsModule,
+  ReactiveFormsModule,
 ];
 
 const MATERIAL_MODULES: any[] = [

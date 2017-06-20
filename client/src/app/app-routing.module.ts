@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { PageNotFoundComponent } from "app/page-not-found.component";
-import { MainComponent } from "app/main/main.component";
+import { PageNotFoundComponent } from "app/core/page-not-found.component";
+import { MainComponent } from "app/core/main/main.component";
 
 const routes: Routes = [
   { path: '',   redirectTo: '/todos', pathMatch: 'full' },
