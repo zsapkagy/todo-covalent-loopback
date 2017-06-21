@@ -11,6 +11,6 @@
       [todos]="todos" (delete)="onDeleteTodo($event)" (toggleDone)="onToggleDoneTodo($event)"
     ></poc-todo-list>
     <hr>
-    <poc-todo-footer [todos]="todos"></poc-todo-footer>
+    <poc-todo-footer [todos]="todos | async"></poc-todo-footer>
   </td-layout-card-over>
 </td-layout-nav>

@@ -5,6 +5,8 @@ import { MainComponent } from "app/core/main/main.component";
 import { PageNotFoundComponent } from "app/core/page-not-found.component";
 import { SharedModule } from "app/shared/shared.module";
 import { throwIfAlreadyLoaded } from "app/core/module-import-guard";
+import { TodosService } from "app/core/todos.service";
+import { TodosResolve } from "app/core/todos.resolve";
 
 @NgModule({
   imports: [
@@ -18,6 +20,10 @@ import { throwIfAlreadyLoaded } from "app/core/module-import-guard";
   exports: [
     MainComponent,
     PageNotFoundComponent,
+  ],
+  providers: [
+    TodosService,
+    TodosResolve,
   ]
 })
 export class CoreModule {
