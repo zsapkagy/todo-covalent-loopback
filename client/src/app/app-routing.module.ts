@@ -15,7 +15,7 @@ const routes: Routes = [
       component: MainComponent,
       children: [
         { path: 'todos', loadChildren: 'app/todo/todo.module#TodoModule', resolve: { todosResolve: TodosResolve } },
-        { path: 'oo-todos', loadChildren: 'app/over-modularized/over-modularized.module#OverModularizedModule' },
+        { path: 'oo-todos', loadChildren: 'app/over-modularized/over-modularized.module#OverModularizedModule', resolve: { todosResolve: TodosResolve } },
       ]
   },
   { path: '**', redirectTo: '404' },
