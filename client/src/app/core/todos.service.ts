@@ -63,7 +63,7 @@ export class TodosService {
       });
 
     function onSuccess(deletedTodoCount) {
-      if (deletedTodoCount) {
+      if (deletedTodoCount.count) {
         this.loadingService.resolve('loader');
         this._todos.next(this._todos.getValue().filter(todo => todo.id !== deletedTodo.id));
         // this._todos.next(this._todos.getValue());
