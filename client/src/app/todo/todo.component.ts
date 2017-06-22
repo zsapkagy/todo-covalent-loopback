@@ -21,8 +21,6 @@ export class TodoComponent implements OnInit {
 
   ngOnInit() {
     console.log('todoComponent ngOnInit');
-
-    // this.refreshTodoList();
   }
 
   onAddTodo(todo: Todo) {
@@ -30,19 +28,7 @@ export class TodoComponent implements OnInit {
   }
 
   onDeleteTodo(todo: Todo) {
-    // this.dialogService
-    //   .openConfirm({message: 'Are you sure you want to delete this todo?'})
-    //   .afterClosed().subscribe((confirm: boolean) => {
-    //     if (confirm) {
-    //       this.loadingService.register('users.list');
-    //       this.todoApi.deleteById(todo.id)
-    //       .subscribe((result) => {
-    //         this.loadingService.resolve('users.list');
-    //         this.snackBarService.open('Todo deleted', 'Ok');
-    //         this.refreshTodoList();
-    //       });
-    //     }
-    //   });
+    this.todosService.deleteTodo(todo);
   }
 
   onToggleDoneTodo(todo: Todo) {

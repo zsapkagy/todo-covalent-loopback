@@ -23,6 +23,14 @@ export class TodosService {
     return this._todos.asObservable();
   }
 
+  onError(error) {
+    () => {
+      console.log('onError', error);
+      this.loadingService.resolve('loader');
+      this.snackBarService.open(`The action failed`, 'Ok', { duration: 2000, extraClasses: ['error'] });
+    }
+  }
+
   loadTodos() {
     return this.todoApi.find({})
     .subscribe(((result) => {
@@ -33,12 +41,38 @@ export class TodosService {
   addTodo(todo: Todo) {
     this.loadingService.register('loader');
     this.todoApi.create(todo)
-    .subscribe(((newTodo) => {
+    .subscribe(onSuccess.bind(this), this.onError);
+
+    function onSuccess(newTodo: Todo) {
       this._todos.getValue().push(newTodo);
       this._todos.next(this._todos.getValue());
       this.snackBarService.open('Todo created', 'Ok', { duration: 2000 });
       this.loadingService.resolve('loader');
-    }).bind(this))
+    }
+  }
+
+  deleteTodo(deletedTodo: Todo) {
+    this.dialogService
+      .openConfirm({message: 'Are you sure you want to delete this todo?'})
+      .afterClosed().subscribe((confirm: boolean) => {
+        if (confirm) {
+          this.loadingService.register('loader');
+          this.todoApi.deleteById(deletedTodo.id)
+          .subscribe(onSuccess.bind(this), this.onError);
+        }
+      });
+
+    function onSuccess(deletedTodoCount) {
+      if (deletedTodoCount) {
+        this.loadingService.resolve('loader');
+        this._todos.next(this._todos.getValue().filter(todo => todo.id !== deletedTodo.id));
+        // this._todos.next(this._todos.getValue());
+        this.snackBarService.open(`${deletedTodoCount.count} Todo deleted`, 'Ok');
+        // this.refreshTodoList();
+      } else {
+        this.onError();
+      }
+    }
   }
 
 }
