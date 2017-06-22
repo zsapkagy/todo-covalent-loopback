@@ -19,7 +19,6 @@ export class TodoComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('todoComponent ngOnInit');
   }
 
   onAddTodo(todo: Todo) {

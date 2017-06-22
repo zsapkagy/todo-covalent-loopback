@@ -20,4 +20,16 @@ export class OverModularizedComponent implements OnInit {
   ngOnInit() {
   }
 
+  // onAddTodo(todo: Todo) {
+  //   this.todosService.addTodo(todo);
+  // }
+
+  onDeleteTodo(todo: Todo) {
+    this.todosService.deleteTodo(todo);
+  }
+
+  onToggleDoneTodo(todo: Todo) {
+    this.todosService.toggleTodo(todo);
+  }
+
 }

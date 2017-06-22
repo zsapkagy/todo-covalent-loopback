@@ -1,8 +1,5 @@
 <ul>
-  <li layout="row" layout-padding *ngFor="let item of todos | async" [ngClass]="{done: item.done}">
-    <button md-button (click)="onToggleDone(item)"><md-icon>check</md-icon></button>
-    <span flex>{{ item.name }}</span>
-    <md-icon [ngClass]="item.priority | priorityClass" class="flag">flag</md-icon>
-    <button md-mini-fab (click)="onDelete(item)"><md-icon>delete</md-icon></button>
+  <li *ngFor="let item of todos | async">
+    <poc-om-list-item [item]="item" flex></poc-om-list-item>
   </li>
 </ul>

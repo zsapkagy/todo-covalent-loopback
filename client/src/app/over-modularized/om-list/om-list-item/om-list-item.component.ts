@@ -1,11 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+import { Todo } from "app/shared/sdk";
 
 @Component({
-  selector: 'app-om-list-item',
-  templateUrl: './om-list-item.component.html',
+  selector: 'poc-om-list-item',
+  template: `
+  <div layout="row" layout-padding [ngClass]="{done: item.done}">
+    <button md-button (click)="onToggleDone(item)"><md-icon>check</md-icon></button>
+    <span flex>{{ item.name }}</span>
+    <md-icon [ngClass]="item.priority | priorityClass" class="flag">flag</md-icon>
+    <button md-mini-fab (click)="onDelete(item)"><md-icon>delete</md-icon></button>
+  </div>
+  `,
   styleUrls: ['./om-list-item.component.scss']
 })
 export class OmListItemComponent implements OnInit {
+  @Input()
+  item: Todo;
 
   constructor() { }
 
