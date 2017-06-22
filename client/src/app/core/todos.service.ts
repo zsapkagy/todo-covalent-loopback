@@ -66,9 +66,7 @@ export class TodosService {
       if (deletedTodoCount.count) {
         this.loadingService.resolve('loader');
         this._todos.next(this._todos.getValue().filter(todo => todo.id !== deletedTodo.id));
-        // this._todos.next(this._todos.getValue());
         this.snackBarService.open(`${deletedTodoCount.count} Todo deleted`, 'Ok');
-        // this.refreshTodoList();
       } else {
         this.onError();
       }

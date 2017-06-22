@@ -1,5 +1,5 @@
 <ul>
-  <li layout="row" layout-padding *ngFor="let item of todos" [ngClass]="{done: item.done}">
+  <li layout="row" layout-padding *ngFor="let item of todos | async" [ngClass]="{done: item.done}">
     <button md-button (click)="onToggleDone(item)"><md-icon>check</md-icon></button>
     <span flex>{{ item.name }}</span>
     <md-icon [ngClass]="item.priority | priorityClass" class="flag">flag</md-icon>
