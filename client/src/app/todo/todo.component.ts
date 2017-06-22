@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoApi, Todo } from "app/shared/sdk";
 import { Observable } from "rxjs/Observable";
-import { TdLoadingService, TdDialogService } from '@covalent/core';
-import { MdSnackBar } from '@angular/material';
 import { TodosService } from "app/core/todos.service";
 
 
@@ -17,9 +15,6 @@ export class TodoComponent implements OnInit {
   constructor(
     private todosService: TodosService,
     private todoApi: TodoApi,
-    private loadingService: TdLoadingService,
-    private snackBarService: MdSnackBar,
-    private dialogService: TdDialogService
   ) {
     this.todos = this.todosService.todos;
   }
@@ -31,12 +26,7 @@ export class TodoComponent implements OnInit {
   }
 
   onAddTodo(todo: Todo) {
-    // this.todoApi.create(todo)
-    // .subscribe((result) => {
-    //   // this.refreshTodoList();
-    //   this.todos.push(result);
-    //   this.snackBarService.open('Todo created', 'Ok', { duration: 2000 });
-    // })
+    this.todosService.addTodo(todo);
   }
 
   onDeleteTodo(todo: Todo) {
