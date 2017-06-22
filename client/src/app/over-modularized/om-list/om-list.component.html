@@ -1,5 +1,12 @@
 <ul>
   <li *ngFor="let item of todos | async">
-    <poc-om-list-item [item]="item" flex></poc-om-list-item>
+    <poc-om-list-item flex
+      [item]="item"
+      (toggleDone)="onToggleDone($event)"
+      (delete)="onDelete($event)"
+    ></poc-om-list-item>
   </li>
 </ul>
+<a md-fab color="accent" class="mat-fab-bottom-right fixed" [routerLink]="['add']">
+    <md-icon>add</md-icon>
+</a>
