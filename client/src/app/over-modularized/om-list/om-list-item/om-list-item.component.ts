@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { Todo } from "app/shared/sdk";
 
@@ -18,9 +18,23 @@ export class OmListItemComponent implements OnInit {
   @Input()
   item: Todo;
 
+  @Output()
+  toggleDone: EventEmitter<Todo> = new EventEmitter();
+
+  @Output()
+  delete: EventEmitter<Todo> = new EventEmitter();
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onToggleDone(item: Todo){
+    this.toggleDone.emit(item);
+  }
+
+  onDelete(item: Todo){
+    this.delete.emit(item);
   }
 
 }
