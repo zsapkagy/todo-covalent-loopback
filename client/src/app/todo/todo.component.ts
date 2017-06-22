@@ -14,7 +14,6 @@ export class TodoComponent implements OnInit {
 
   constructor(
     private todosService: TodosService,
-    private todoApi: TodoApi,
   ) {
     this.todos = this.todosService.todos;
   }
@@ -32,26 +31,6 @@ export class TodoComponent implements OnInit {
   }
 
   onToggleDoneTodo(todo: Todo) {
-    // this.todoApi.patchAttributes(todo.id, {done: !todo.done})
-    // .subscribe((result) => {
-    //   this.refreshTodoList();
-    //   this.snackBarService.open(`Todo ${result.done ? '' : 'not'} done`, 'Ok',
-    //   {
-    //     duration: 2000,
-    //     extraClasses: ['success']
-    //   });
-    // })
+    this.todosService.toggleTodo(todo);
   }
-
-  refreshTodoList() {
-    // this.loadingService.register('loader');
-    // this.todoApi.find({})
-    // .subscribe((result) => {
-    //   this.todos = result as Todo[];
-    //   setTimeout(() => {
-    //     this.loadingService.resolve('loader');
-    //   }, 500);
-    // });
-  }
-
 }

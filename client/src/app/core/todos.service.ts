@@ -75,4 +75,23 @@ export class TodosService {
     }
   }
 
+  toggleTodo(todo: Todo) {
+    this.todoApi.patchAttributes(todo.id, {done: !todo.done})
+    .subscribe(onSuccess.bind(this), this.onError);
+
+    function onSuccess(toggledTodo) {
+      this._todos.next(this._todos.getValue().map(item => {
+        if (item.id === toggledTodo.id) {
+          item.done = toggledTodo.done;
+        }
+        return item;
+      }));
+      this.snackBarService.open(`Todo ${todo.done ? '' : 'not'} done`, 'Ok',
+      {
+        duration: 2000,
+        extraClasses: ['success']
+      });
+    }
+  }
+
 }

@@ -1,4 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
-snack-bar-container.success {
-  background-color: green;
+snack-bar-container {
+  &.success {
+    background-color: green;
+  }
+  &.error {
+    background-color: red;
+  }
 }
