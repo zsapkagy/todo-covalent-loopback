@@ -19,8 +19,6 @@ export class OmListComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('OmListComponent ngOnInit');
-
   }
 
   onDelete(todo: Todo) {

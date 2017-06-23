@@ -1,3 +1,27 @@
 <td-layout-card-over cardTitle="Todos" cardSubtitle="Add or complete todos" cardWidth="75">
-  Edit page
+  <form #todoForm="ngForm">
+    <div layout="row" layout-padding>
+      <input flex #name type="text" name="name" [(ngModel)]="todo.name"
+        placeholder="What should be done?"
+        autofocus
+        required minlength="3"
+      >
+    </div>
+    <div layout="row" layout-padding>
+      <span flex="30">Priority</span>
+      <md-radio-group name="priority" [(ngModel)]="todo.priority"
+        flex class="text-right">
+        <md-radio-button *ngFor="let priority of [0, 1, 2, 3]" [value]="priority" class="pad-right-md">
+              <md-icon [ngClass]="priority | priorityClass">flag</md-icon>
+        </md-radio-button>
+      </md-radio-group>
+    </div>
+  </form>
+
+  <md-divider></md-divider>
+  <md-card-actions>
+    <button md-button [disabled]="!todoForm.valid" color="primary" (click)="save()">SAVE</button>
+    <button md-button (click)="goBack()">CANCEL</button>
+  </md-card-actions>
+
 </td-layout-card-over>
