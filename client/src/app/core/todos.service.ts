@@ -38,20 +38,22 @@ export class TodosService {
     }).bind(this));
   }
 
-  addTodo(todo: Todo) {
-    this.loadingService.register('loader');
-    this.todoApi.create(todo)
-    .subscribe(onSuccess.bind(this), this.onError);
-
+  addTodo(todo: Todo): Observable<Todo> {
     function onSuccess(newTodo: Todo) {
       this._todos.getValue().push(newTodo);
       this._todos.next(this._todos.getValue());
       this.snackBarService.open('Todo created', 'Ok', { duration: 2000 });
       this.loadingService.resolve('loader');
     }
+
+    this.loadingService.register('loader');
+
+    const obs = this.todoApi.create(todo);
+    obs.subscribe(onSuccess.bind(this), this.onError);
+    return obs;
   }
 
-  deleteTodo(deletedTodo: Todo) {
+  deleteTodo(deletedTodo: Todo): void {
     this.dialogService
       .openConfirm({message: 'Are you sure you want to delete this todo?'})
       .afterClosed().subscribe((confirm: boolean) => {
@@ -66,14 +68,14 @@ export class TodosService {
       if (deletedTodoCount.count) {
         this.loadingService.resolve('loader');
         this._todos.next(this._todos.getValue().filter(todo => todo.id !== deletedTodo.id));
-        this.snackBarService.open(`${deletedTodoCount.count} Todo deleted`, 'Ok');
+        this.snackBarService.open(`${deletedTodoCount.count} Todo deleted`, 'Ok', { duration: 2000 });
       } else {
         this.onError();
       }
     }
   }
 
-  toggleTodo(todo: Todo) {
+  toggleTodo(todo: Todo): void {
     this.todoApi.patchAttributes(todo.id, {done: !todo.done})
     .subscribe(onSuccess.bind(this), this.onError);
 
