@@ -1,5 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Observable } from "rxjs/Observable";
+
 import { Todo } from "app/shared/sdk";
+import { TodosService } from "app/core/todos.service";
 
 @Component({
   selector: 'poc-om-todo-list',
@@ -7,26 +10,25 @@ import { Todo } from "app/shared/sdk";
   styleUrls: ['./om-list.component.scss']
 })
 export class OmListComponent implements OnInit {
-  @Input()
-  todos: Todo[];
+  todos: Observable<Array<Todo>>;
 
-  @Output()
-  toggleDone: EventEmitter<Todo> = new EventEmitter();
-
-  @Output()
-  delete: EventEmitter<Todo> = new EventEmitter();
-
-  constructor() { }
+  constructor(
+    private todosService: TodosService
+  ) {
+    this.todos = this.todosService.todos;
+  }
 
   ngOnInit() {
+    console.log('OmListComponent ngOnInit');
+
   }
 
-  onDelete(item: Todo) {
-    this.delete.emit(item);
+  onDelete(todo: Todo) {
+    this.todosService.deleteTodo(todo);
   }
 
-  onToggleDone(item: Todo) {
-    this.toggleDone.emit(item);
+  onToggleDone(todo: Todo) {
+    this.todosService.toggleTodo(todo);
   }
 
 }

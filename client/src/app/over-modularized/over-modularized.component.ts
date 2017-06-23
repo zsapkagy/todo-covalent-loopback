@@ -9,13 +9,8 @@ import { TodosService } from "app/core/todos.service";
   styleUrls: ['./over-modularized.component.scss']
 })
 export class OverModularizedComponent implements OnInit {
-  todos: Observable<Array<Todo>>;
 
-  constructor(
-    private todosService: TodosService
-  ) {
-    this.todos = this.todosService.todos;
-  }
+  constructor() { }
 
   ngOnInit() {
   }
@@ -23,13 +18,4 @@ export class OverModularizedComponent implements OnInit {
   // onAddTodo(todo: Todo) {
   //   this.todosService.addTodo(todo);
   // }
-
-  onDeleteTodo(todo: Todo) {
-    this.todosService.deleteTodo(todo);
-  }
-
-  onToggleDoneTodo(todo: Todo) {
-    this.todosService.toggleTodo(todo);
-  }
-
 }
