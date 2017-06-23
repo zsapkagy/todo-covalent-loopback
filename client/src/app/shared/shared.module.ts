@@ -37,6 +37,7 @@ import {
   MdToolbarModule,
   // MdTooltipModule,
 } from '@angular/material';
+import { TodoFooterComponent } from "app/shared/todo-footer/todo-footer.component";
 
 
 const ANGULAR_MODULES: any[] = [
@@ -78,9 +79,10 @@ const COVALENT_MODULES: any[] = [
 ];
 
 const DECLARATIONS: any[] = [
-    DonePipe,
     CountPipe,
+    DonePipe,
     PriorityClassPipe,
+    TodoFooterComponent,
 ];
 
 @NgModule({

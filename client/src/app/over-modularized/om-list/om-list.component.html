@@ -13,7 +13,6 @@
   </a>
   <md-divider></md-divider>
   <md-card-footer>
-    footer
-    <!--<poc-todo-footer [todos]="todos"></poc-todo-footer>-->
+    <poc-todo-footer [todos]="todos | async"></poc-todo-footer>
   </md-card-footer>
 </td-layout-card-over>

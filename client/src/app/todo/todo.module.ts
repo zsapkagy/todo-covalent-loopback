@@ -4,7 +4,6 @@ import { TodoComponent } from './todo.component';
 import { TodoRoutingModule } from "app/todo/todo-routing.module";
 import { TodoListComponent } from "app/todo/todo-list/todo-list.component";
 import { TodoHeaderComponent } from "app/todo/todo-header/todo-header.component";
-import { TodoFooterComponent } from "app/todo/todo-footer/todo-footer.component";
 import { SharedModule } from "app/shared/shared.module";
 
 @NgModule({
@@ -17,7 +16,6 @@ import { SharedModule } from "app/shared/shared.module";
     TodoComponent,
     TodoListComponent,
     TodoHeaderComponent,
-    TodoFooterComponent,
   ],
   providers: [],
 })
