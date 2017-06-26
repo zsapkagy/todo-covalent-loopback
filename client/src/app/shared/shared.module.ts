@@ -16,7 +16,7 @@ import {
   CovalentMenuModule,
   // CovalentNotificationsModule,
   // CovalentPagingModule,
-  // CovalentSearchModule,
+  CovalentSearchModule,
   // CovalentStepsModule,
 } from '@covalent/core';
 
@@ -74,7 +74,7 @@ const COVALENT_MODULES: any[] = [
   CovalentMenuModule,
   // CovalentNotificationsModule,
   // CovalentPagingModule,
-  // CovalentSearchModule,
+  CovalentSearchModule,
   // CovalentStepsModule,
 ];
 

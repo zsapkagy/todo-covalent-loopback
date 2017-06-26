@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Observable } from "rxjs/Observable";
 import { Router, ActivatedRoute } from "@angular/router";
+import { BehaviorSubject } from "rxjs/BehaviorSubject";
+import 'rxjs/add/operator/distinctUntilChanged';
 
 import { Todo } from "app/shared/sdk";
 import { TodosService } from "app/core/todos.service";
@@ -11,17 +13,25 @@ import { TodosService } from "app/core/todos.service";
   styleUrls: ['./om-list.component.scss']
 })
 export class OmListComponent implements OnInit {
-  todos: Observable<Array<Todo>>;
+  todos: Todo[];
+  searchInputTerm: BehaviorSubject<String> = new BehaviorSubject(null);
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private todosService: TodosService
   ) {
-    this.todos = this.todosService.todos;
   }
 
   ngOnInit() {
+    this.todosService.todos.subscribe((todos) => {
+      this.todos = todos;
+    });
+    this.searchInputTerm
+      .distinctUntilChanged()
+      .subscribe((term => {
+        this.filter(this.searchInputTerm);
+      }))
   }
 
   onDelete(todo: Todo) {
@@ -34,6 +44,14 @@ export class OmListComponent implements OnInit {
 
   onEdit(todo: Todo) {
     this.router.navigate(['../edit', todo.id], { relativeTo: this.route });
+  }
+
+  filter(term) {
+    if (term.getValue() !== null) {
+      this.todosService.todos.subscribe(todos => {
+          this.todos = todos.filter(todo => (todo.name.search(term.getValue()) > -1))
+      });
+    }
   }
 
 }

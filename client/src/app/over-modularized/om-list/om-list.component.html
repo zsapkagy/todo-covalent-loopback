@@ -1,6 +1,15 @@
 <td-layout-card-over cardTitle="Todos" cardSubtitle="Add or complete todos" cardWidth="75">
+  <td-search-box backIcon="arrow_back"
+    placeholder="Search here"
+    [showUnderline]="true"
+    [debounce]="500"
+    [alwaysVisible]="false"
+    (searchDebounce)="searchInputTerm.next($event)"
+    (search)="searchInputTerm.next($event)"
+    (clear)="searchInputTerm.next('')">
+  </td-search-box>
   <ul *tdLoading="'loader'">
-    <li *ngFor="let item of todos | async">
+    <li *ngFor="let item of todos">
       <poc-om-list-item flex
         [item]="item"
         (toggleDone)="onToggleDone($event)"
@@ -14,6 +23,6 @@
   </a>
   <md-divider></md-divider>
   <md-card-footer>
-    <poc-todo-footer [todos]="todos | async"></poc-todo-footer>
+    <poc-todo-footer [todos]="todos"></poc-todo-footer>
   </md-card-footer>
 </td-layout-card-over>
