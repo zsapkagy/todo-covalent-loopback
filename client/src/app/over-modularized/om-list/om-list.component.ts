@@ -14,7 +14,8 @@ import { TodosService } from "app/core/todos.service";
 })
 export class OmListComponent implements OnInit {
   todos: Todo[];
-  searchInputTerm: BehaviorSubject<String> = new BehaviorSubject(null);
+  searchInputTerm: BehaviorSubject<string> = new BehaviorSubject(null);
+  sub: any;
 
   constructor(
     private router: Router,
@@ -25,12 +26,12 @@ export class OmListComponent implements OnInit {
 
   ngOnInit() {
     this.todosService.todos.subscribe((todos) => {
-      this.todos = todos;
+      this.filter(todos);
     });
-    this.searchInputTerm
+    this.sub = this.searchInputTerm
       .distinctUntilChanged()
       .subscribe((term => {
-        this.filter(this.searchInputTerm);
+        this.filter(this.todosService.getTodoValues(), this.searchInputTerm);
       }))
   }
 
@@ -46,12 +47,18 @@ export class OmListComponent implements OnInit {
     this.router.navigate(['../edit', todo.id], { relativeTo: this.route });
   }
 
-  filter(term) {
-    if (term.getValue() !== null) {
-      this.todosService.todos.subscribe(todos => {
-          this.todos = todos.filter(todo => (todo.name.search(term.getValue()) > -1))
-      });
+  filter(todos: Todo[], term: BehaviorSubject<string> = new BehaviorSubject(null)) {
+    if (!!todos) {
+      if (term && !!term.getValue()) {
+        this.todos = todos.filter(todo => {return todo.name.search(term.getValue()) > -1});
+      } else {
+        this.todos = todos;
+      }
     }
+  }
+
+  onDestroy() {
+    this.sub.unsubscribe();
   }
 
 }

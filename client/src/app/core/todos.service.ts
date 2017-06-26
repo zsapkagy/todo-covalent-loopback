@@ -22,6 +22,9 @@ export class TodosService {
   get todos(): Observable<Todo[]> {
     return this._todos.asObservable();
   }
+  getTodoValues(): Todo[] {
+    return this._todos.getValue();
+  }
 
   onError(error) {
     () => {
