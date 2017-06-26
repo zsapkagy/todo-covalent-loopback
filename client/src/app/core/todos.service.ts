@@ -38,6 +38,10 @@ export class TodosService {
     }).bind(this));
   }
 
+  getTodo(id) {
+    return this.todoApi.findById(id);
+  }
+
   addTodo(todo: Todo): Observable<Todo> {
     function onSuccess(newTodo: Todo) {
       this._todos.getValue().push(newTodo);
@@ -92,6 +96,26 @@ export class TodosService {
         extraClasses: ['success']
       });
     }
+  }
+
+  updateTodo(todo: Todo): Observable<Todo> {
+    function onSuccess(updatedTodo) {
+      this._todos.next(this._todos.getValue().map(item => {
+        if (item.id === updatedTodo.id) {
+          item = updatedTodo;
+        }
+        return item;
+      }));
+      this.snackBarService.open(`Todo updated`, 'Ok',
+      {
+        duration: 2000,
+        extraClasses: ['success']
+      });
+    }
+
+    const obs = this.todoApi.patchAttributes(todo.id, todo)
+    obs.subscribe(onSuccess.bind(this), this.onError);
+    return obs;
   }
 
 }

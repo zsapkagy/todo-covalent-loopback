@@ -9,6 +9,7 @@ import { Todo } from "app/shared/sdk";
     <button md-button (click)="onToggleDone(item)"><md-icon>check</md-icon></button>
     <span flex>{{ item.name }}</span>
     <md-icon [ngClass]="item.priority | priorityClass" class="flag">flag</md-icon>
+    <button md-mini-fab (click)="onEdit(item)" color="primary"><md-icon>edit</md-icon></button>
     <button md-mini-fab (click)="onDelete(item)"><md-icon>delete</md-icon></button>
   </div>
   `,
@@ -24,6 +25,9 @@ export class OmListItemComponent implements OnInit {
   @Output()
   delete: EventEmitter<Todo> = new EventEmitter();
 
+  @Output()
+  edit: EventEmitter<Todo> = new EventEmitter();
+
   constructor() { }
 
   ngOnInit() {
@@ -35,6 +39,10 @@ export class OmListItemComponent implements OnInit {
 
   onDelete(item: Todo){
     this.delete.emit(item);
+  }
+
+  onEdit(item: Todo){
+    this.edit.emit(item);
   }
 
 }

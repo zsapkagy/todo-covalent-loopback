@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Observable } from "rxjs/Observable";
+import { Router, ActivatedRoute } from "@angular/router";
 
 import { Todo } from "app/shared/sdk";
 import { TodosService } from "app/core/todos.service";
@@ -13,6 +14,8 @@ export class OmListComponent implements OnInit {
   todos: Observable<Array<Todo>>;
 
   constructor(
+    private router: Router,
+    private route: ActivatedRoute,
     private todosService: TodosService
   ) {
     this.todos = this.todosService.todos;
@@ -27,6 +30,10 @@ export class OmListComponent implements OnInit {
 
   onToggleDone(todo: Todo) {
     this.todosService.toggleTodo(todo);
+  }
+
+  onEdit(todo: Todo) {
+    this.router.navigate(['../edit', todo.id], { relativeTo: this.route });
   }
 
 }

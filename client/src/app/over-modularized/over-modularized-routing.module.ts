@@ -11,6 +11,7 @@ const routes: Routes = [
       { path: '', redirectTo: 'list', pathMatch: 'full' },
       { path: 'list', component: OmListComponent },
       { path: 'add', loadChildren: './om-edit/om-edit.module#OmEditModule' },
+      { path: 'edit/:id', loadChildren: './om-edit/om-edit.module#OmEditModule' },
     ]
   },
 ];
